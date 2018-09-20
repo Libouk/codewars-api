@@ -1,0 +1,14 @@
+# This file is the entry point to configure your own HTTP routes.
+# Files in the routes/ subdirectory configure the routes for your dependencies.
+
+homepage:
+    path: /home
+    controller: App\Controller\DefaultController::home
+    defaults:
+        template: default/homepage.html.twig
+        _locale: '%locale%'
+mumbling:
+  path: /mumbling/{characters}
+  controller: App\Controller\MumblingController::MumblingDemo
+  defaults:
+    characters: 'Abcdef'
