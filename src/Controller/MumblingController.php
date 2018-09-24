@@ -20,8 +20,22 @@ class MumblingController extends Controller
 
     function MumblingDemo($characters) 
     {
-        $resultStr = self::accum($characters);
+        $response = new Response();
+        $date = new \DateTime();
 
-        return $this->render('challenges/mumbling.html.twig', ['transformation' => $resultStr]);
+        // $resultStr = self::accum($characters);
+
+        $response->setContent(json_encode([
+            'resultString' => self::accum($characters),
+            'time' => $date->format("Y-m-d")
+        ]));
+
+        $response->headers->set('Content-Type', 'application/json');
+        // Allow all websites
+        $response->headers->set('Access-Control-Allow-Origin', '*');
+        // Or a predefined website
+        //$response->headers->set('Access-Control-Allow-Origin', 'https://jsfiddle.net/');
+        // You can set the allowed methods too, if you want    //$response->headers->set('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, PATCH, OPTIONS');    
+        return $response;
     }
 }
