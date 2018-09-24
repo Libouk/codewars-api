@@ -12,3 +12,9 @@ mumbling:
   controller: App\Controller\MumblingController::MumblingDemo
   defaults:
     characters: 'Abcdef'
+challenge_new:
+  path: /api/v1/challenge/new
+  controller: App\Controller\ChallengeController::new
+challenge_show:
+  path: /api/v1/challenge/show/{id}
+  controller: App\Controller\ChallengeController::show    

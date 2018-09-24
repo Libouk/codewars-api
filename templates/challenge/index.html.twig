@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<title>Challenge index</title>
+
+{% block body %}
+    <h1>Challenge index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>ShortDescription</th>
+                <th>FullDescription</th>
+                <th>Example</th>
+                <th>Solution</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for challenge in challenges %}
+            <tr>
+                <td>{{ challenge.id }}</td>
+                <td>{{ challenge.title }}</td>
+                <td>{{ challenge.shortDescription }}</td>
+                <td>{{ challenge.fullDescription }}</td>
+                <td>{{ challenge.example }}</td>
+                <td>{{ challenge.solution }}</td>
+                <td>
+                    <a href="{{ path('challenge_show', {'id': challenge.id}) }}">show</a>
+                    <a href="{{ path('challenge_edit', {'id': challenge.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('challenge_new') }}">Create new</a>
+{% endblock %}

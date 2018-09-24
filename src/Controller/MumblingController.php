@@ -23,10 +23,10 @@ class MumblingController extends Controller
         $response = new Response();
         $date = new \DateTime();
 
-        // $resultStr = self::accum($characters);
+        $resultString = self::accum($characters);
 
         $response->setContent(json_encode([
-            'resultString' => self::accum($characters),
+            'resultString' => $resultString,
             'time' => $date->format("Y-m-d")
         ]));
 
