@@ -32,7 +32,7 @@ class MumblingController extends Controller
 
         $response->headers->set('Content-Type', 'application/json');
         // Allow all websites
-        $response->headers->set('Access-Control-Allow-Origin', '*');
+        $response->headers->set('Access-Control-Allow-Origin', 'http://localhost:4200');
         // Or a predefined website
         //$response->headers->set('Access-Control-Allow-Origin', 'https://jsfiddle.net/');
         // You can set the allowed methods too, if you want    //$response->headers->set('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, PATCH, OPTIONS');    
