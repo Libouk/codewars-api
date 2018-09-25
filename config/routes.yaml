@@ -23,3 +23,8 @@ buildtower_show:
   controller: App\Controller\BuildTowerController::show 
   defaults:
     rows: 4
+camelcase_show:
+  path: /api/v1/camelcase/show/{strToCamelCase}
+  controller: App\Controller\CamelCaseController::show 
+  defaults:
+    strToCamelCase: 'default string to camel case'    

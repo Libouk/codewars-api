@@ -8,26 +8,27 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/buildtower")
+ * @Route("/camelcase")
  */
-class BuildTowerController extends Controller
+class CamelCaseController extends Controller
 {
-    function TowerBuilder(int $n): array 
-    {
-        $arr = [];
-        for($i=1; $i<=$n; $i++) {
-            $arr[] = str_pad(str_repeat('*', $i + ($i - 1)), $n + ($n -1), " ", STR_PAD_BOTH);
+    function CamelCase(string $strToCamelCase): string {
+        $arrCCedString = [];
+        $arrExplodedString = explode(' ', $strToCamelCase);
+        foreach($arrExplodedString as $wrdToCamelCase) {
+            array_push($arrCCedString, ucfirst(strtolower($wrdToCamelCase)));
         }
-        return $arr;
+        $ccedStr = implode('', $arrCCedString);
+        return $ccedStr;
     }
 
-    public function show(int $rows): Response
+    public function show(string $strToCamelCase): Response
     {
         $response = new Response();
         $date = new \DateTime();
-        $tower = self::TowerBuilder($rows);
+        $camelcase = self::CamelCase($strToCamelCase);
         $response->setContent(json_encode([
-            'tower' => $tower,
+            'ccedString' => $camelcase,
             'time' => $date->format('Y-m-d')
         ]));
         $response->headers->set('Content-Type', 'application/json');
