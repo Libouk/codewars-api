@@ -18,3 +18,8 @@ challenge_new:
 challenge_show:
   path: /api/v1/challenge/show/{id}
   controller: App\Controller\ChallengeController::show    
+buildtower_show:
+  path: /api/v1/buildtower/show/{rows}
+  controller: App\Controller\BuildTowerController::show 
+  defaults:
+    rows: 4
