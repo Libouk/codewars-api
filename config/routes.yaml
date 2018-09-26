@@ -27,4 +27,7 @@ camelcase_show:
   path: /api/v1/camelcase/show/{strToCamelCase}
   controller: App\Controller\CamelCaseController::show 
   defaults:
-    strToCamelCase: 'default string to camel case'    
+    strToCamelCase: 'default string to camel case' 
+highestscoringword_show:
+  path: /api/v1/highestscoringword/show/{strToSort}
+  controller: App\Controller\HighestScoringWordController::show 
